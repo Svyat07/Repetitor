@@ -11,17 +11,37 @@ namespace _004_15Repetitor_26_01_23.TheClasses
     {
         public static bool Auth(string Login, string Password)
         {
-            if(Login == "w" && Password == "w")
+            var db = Entities.RepDBEntities.GetContext();
+            var sign = from user in db.Repetitors
+                       where user.Login == Login
+                       where user.Password == Password
+                       select user;
+            try
             {
-                TheWindows.WndApp wndApp = new TheWindows.WndApp();
-                wndApp.Show();
-                return true;
+                if (sign == null || !sign.Any())
+                {
+                    Password = "";
+                    MessageBox.Show("Неверны логин или пароль!",
+                    "Сообщение",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                    return false;
+                }
+                else
+                {
+                    Password = "";
+                    Login = "";
+                    TheWindows.WndApp windowStart = new TheWindows.WndApp();
+                    windowStart.Show();
+                    return true;
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Неверный логин или пароль");
+                MessageBox.Show("Нет соединения с сервером", "Внимание! Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+           
         }
     }
 }

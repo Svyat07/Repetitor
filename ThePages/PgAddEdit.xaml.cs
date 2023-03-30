@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace _004_15Repetitor_26_01_23.ThePages
 {
     /// <summary>
-    /// Логика взаимодействия для PgStudents.xaml
+    /// Логика взаимодействия для PgAddEdit.xaml
     /// </summary>
-    public partial class PgStudents : Page
+    public partial class PgAddEdit : Page
     {
-        public PgStudents()
+        private Entities.Student _currentStudent = new Entities.Student();
+        public PgAddEdit(Entities.Student selectedStudent)
         {
             InitializeComponent();
-        }
+            if (_currentStudent != null)
+                _currentStudent = selectedStudent;
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            TheClasses.Manager.MainFrame.Navigate(new PgAddEdit(null));
+            DataContext = _currentStudent;
         }
     }
 }

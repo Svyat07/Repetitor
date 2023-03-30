@@ -13,21 +13,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _004_15Repetitor_26_01_23.ThePages
+namespace _004_15Repetitor_26_01_23.UC
 {
     /// <summary>
-    /// Логика взаимодействия для PgStudents.xaml
+    /// Логика взаимодействия для StudentUC.xaml
     /// </summary>
-    public partial class PgStudents : Page
+    public partial class StudentUC : UserControl
     {
-        public PgStudents()
+        private Entities.Student student = new Entities.Student();
+
+        public StudentUC()
         {
             InitializeComponent();
+
+            
         }
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            TheClasses.Manager.MainFrame.Navigate(new PgAddEdit(null));
+
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -13,5 +13,6 @@ namespace _004_15Repetitor_26_01_23
     /// </summary>
     public partial class App : Application
     {
+        public static readonly Entities.RepDBEntities repDB = new Entities.RepDBEntities();
     }
 }

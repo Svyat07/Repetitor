@@ -11,5 +11,18 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center">The Students</TextBlock>
+        <Button x:Name="BtnAdd"
+                Style="{StaticResource BtnEye}"
+                Background="{StaticResource Blue}"
+                Content="+"
+                FontSize="48"
+                VerticalContentAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Padding="0 -12 0 0"
+                Foreground="White"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Click="BtnAdd_Click"
+                />
     </Grid>
 </Page>
